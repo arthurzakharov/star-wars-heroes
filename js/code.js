@@ -48,12 +48,9 @@ function createHeroItem(hero) {
 function createHeroList(url) {
   loadingPage();
   getNumberOfHeroes(function(output) {
-    // console.log(output);
     totalPages = Math.ceil(output.count/10);
     $('.js_pages').text(currentPage + ' / ' + Math.ceil(output.count/10));
     var heroes = output.results;
-    console.log(currentPage);
-    console.log(totalPages);
     if(output.next === null) {
       $('.js_next').addClass('disabled');
     }else {
@@ -84,18 +81,22 @@ function loadingData() {
   $('.js_navigation').removeClass('hide');
   $('.js_hero-container').removeClass('hide');
   $('.js_loading').addClass('hide');
+  $('.js_failure').addClass('hide');
+  $('.js_failure-text').addClass('hide');
 }
 
 function getNumberOfHeroes(handler, linkApi) {
   $.ajax({
     type : 'GET',
-    url : linkApi,
+    url : linkApi+'34343434343',
     success : function (data) {
       loadingData();
       handler(data);
     },
     error : function () {
       console.log("error");
+      $('.body').append('<div class="js_failure failure"></div>');
+      $('.body').append('<div class="js_failure-text failure-text">We are under attack of 404 stormtroopers</div>');
     }
   });
 }
