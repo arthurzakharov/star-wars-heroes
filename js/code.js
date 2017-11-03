@@ -16,7 +16,7 @@ $(function () {
 
 function createHeroContainer() {
   var body = $('.js_body');
-  body.append('<div class="js_loading loading"></div>');
+  // body.append('<div class="js_loading loading"></div>');
   body.append('<div class="js_hero-container hero-container hide"></div>');
   body.append('' +
       '<div class="js_navigation navigation clearfix hide">' +
