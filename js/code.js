@@ -43,6 +43,7 @@ function createHeroItem(hero) {
         '</div>' +
       '</div>'
   );
+  $('.js_hero-item').fadeIn(2000);
 }
 
 function createHeroList(url) {
@@ -88,15 +89,24 @@ function loadingData() {
 function getNumberOfHeroes(handler, linkApi) {
   $.ajax({
     type : 'GET',
-    url : linkApi+'34343434343',
+    url : linkApi,
+    timeout : 5000,
     success : function (data) {
       loadingData();
       handler(data);
     },
-    error : function () {
-      console.log("error");
+    error : function (XMLHttpRequest) {
+      console.log(XMLHttpRequest);
+      if(XMLHttpRequest.readyState == 0) {
+        $('.body').append('<div class="js_failure-text failure-text">We are out of speed!</div>');
+      }else if(XMLHttpRequest.readyState == 4) {
+        $('.body').append('<div class="js_failure-text failure-text">We are under attack of 404 stormtroopers</div>').fadeIn(4000);
+      } else {
+        $('.body').append('<div class="js_failure-text failure-text">Error because of ' + XMLHttpRequest.statusText + '</div>');
+      }
       $('.body').append('<div class="js_failure failure"></div>');
-      $('.body').append('<div class="js_failure-text failure-text">We are under attack of 404 stormtroopers</div>');
+      $('.js_failure-text').fadeIn(1500);
+      $('.js_failure').fadeIn(1500);
     }
   });
 }

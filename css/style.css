@@ -22,6 +22,7 @@
     position: relative;
 }
 .hero-item {
+    display: none;
     position: relative;
     margin: 10px 0;
     border: 3px solid yellow;
@@ -41,7 +42,7 @@
 }
 .hero-info {
     float: left;
-    margin-left: 120px;
+    margin-left: 140px;
     font-weight: 800;
     font-size: 14px;
 }
@@ -92,6 +93,7 @@
     background-size: cover;
 }
 .failure {
+    display: none;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -104,6 +106,7 @@
     background-size: cover;
 }
 .failure-text {
+    display: none;
     position: absolute;
     bottom: 10%;
     left: 50%;
@@ -146,9 +149,6 @@
     }
     .hero-item:nth-child(even) {
         float: left;
-    }
-    .hero-info {
-        margin-left: 140px;
     }
     .navigation {
         padding-top: 20px;
