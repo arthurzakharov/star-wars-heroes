@@ -1,0 +1,110 @@
+.body {
+    position: relative;
+    min-width: 320px;
+    background-color: black;
+    padding: 5px;
+}
+.body--full-screen {
+    height: 100vh;
+}
+.clearfix:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+.hero-item {
+    position: relative;
+    margin: 10px 0;
+    border: 3px solid yellow;
+    background-color: black;
+    color: yellow;
+}
+.hero-img {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    width: 100px;
+    height: 100px;
+    border: 3px solid yellow;
+    background-image: url("../img/person.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.hero-info {
+    float: left;
+    margin-left: 120px;
+    font-weight: 800;
+    font-size: 14px;
+}
+.hero-info span {
+    font-style: italic;
+    font-size: 12px;
+}
+.hero-info p {
+    margin: 10px 0;
+}
+.next,
+.previous {
+    width: 120px;
+    font-size: 20px;
+    padding: 10px;
+    border: 3px solid yellow;
+    border-radius: 20px;
+    background-color: black;
+    color: yellow;
+}
+.next {
+    float: right;
+}
+.previous {
+    float: left;
+}
+.navigation {
+    padding: 10px 0;
+}
+.disabled {
+    opacity: 0.65;
+    cursor: not-allowed
+}
+.hide {
+    display: none;
+}
+.loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 300px;
+    background-image: url("../img/loading.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+@media screen and (min-width: 768px){
+    .body {
+        padding: 20px;
+    }
+    .hero-item {
+        width: 49%;
+    }
+    .hero-item:nth-child(odd) {
+        float: right;
+    }
+    .hero-item:nth-child(even) {
+        float: left;
+    }
+    .navigation button {
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+    .previous {
+        margin-left: 20%;
+    }
+    .next {
+        margin-right: 20%;
+    }
+}
