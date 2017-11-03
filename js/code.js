@@ -32,11 +32,12 @@ function createHeroContainer() {
 
 function createHeroItem(hero) {
   var like = hero.name.split(' ').join('-') + '_liked';
+  var selectorForLike= '#'+like;
   $('.js_hero-container').append(
       '<div class="js_hero-item hero-item clearfix">' +
         '<img class="js_hero-img hero-img">' +
         '<div class="js_hero-info hero-info">' +
-          '<input class="js_hero-like hero-like" type="checkbox" name="thing" value="valuable" id="' + like + '"/><label for="' + like + '"></label>' +
+          '<input class="js_hero-like hero-like" type="checkbox" name="thing" value="valuable" id="' + like + '" liked="false"/><label for="' + like + '"></label>' +
           '<p class="js_hero-name hero-name"><span>Name: </span> ' + hero.name + '</p>' +
           '<p class="js_hero-gender hero-gender"><span>Gender: </span> ' + hero.gender + '</p>' +
           '<p class="js_hero-height hero-height"><span>Height: </span> ' + hero.height + '</p>' +
@@ -46,6 +47,23 @@ function createHeroItem(hero) {
       '</div>'
   );
   $('.js_hero-item').fadeIn(2000);
+  $(selectorForLike).addClass('js-not-liked');
+
+  $(selectorForLike).on('change', function () {
+    if($(this).hasClass('js-not-liked')) {
+      $(this).removeClass('js-not-liked');
+      $(this).addClass('js-liked');
+      localStorage.setItem(selectorForLike, true);
+    } else {
+      $(this).addClass('js-not-liked');
+      $(this).removeClass('js-liked');
+      localStorage.setItem(selectorForLike, false);
+    }
+  });
+  if(localStorage.getItem(selectorForLike) == 'true') {
+    $(selectorForLike).removeClass('js-not-liked');
+    $(selectorForLike).addClass('js-liked');
+  }
 }
 
 function createHeroList(url) {
