@@ -53,6 +53,26 @@
 .hero-info p {
     margin: 10px 0;
 }
+.hero-like[type=checkbox] {
+    display:none;
+}
+
+.hero-like[type=checkbox] + label {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-image: url("../img/like.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 40px;
+    width: 40px;
+    display:inline-block;
+}
+.hero-like[type=checkbox]:checked + label {
+    background-image: url("../img/like--selected.png");
+    display:inline-block;
+}
 .next,
 .previous {
     width: 120px;
