@@ -109,7 +109,7 @@ function loadingData() {
 function getNumberOfHeroes(handler, linkApi) {
   $.ajax({
     type : 'GET',
-    url : linkApi+'dffd',
+    url : linkApi,
     timeout : 5000,
     success : function (data) {
       loadingData();
